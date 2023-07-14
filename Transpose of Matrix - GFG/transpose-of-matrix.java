@@ -41,7 +41,7 @@ class Solution
     public void transpose(int n,int arr[][]){
         
         for(int i=0;i<arr.length;i++){
-            for(int j=i;j<arr.length;j++){
+            for(int j=arr.length-1;j>i;j--){
                 int temp=arr[i][j];
                 arr[i][j]=arr[j][i];
                 arr[j][i]=temp;
