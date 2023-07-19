@@ -39,11 +39,18 @@ class Solution
 { 
     //Function to search a given number in row-column sorted matrix.
 	static boolean search(int arr[][], int n, int m, int x) {  
-	    for(int i=0;i<n;i++){
-	        for(int j=0;j<m;j++){
-	            if(arr[i][j]==x ){
-	                return true;
-	            }
+	    
+	    int row=0;
+	    int last=m-1;
+	    for(int i=0;i<n+m;i++){
+	        if(row<n && last>=0){
+    	        if(arr[row][last]<x){
+    	            row++;
+    	        }else if(arr[row][last]>x){
+    	            last--;
+    	        }else if(arr[row][last]==x){
+    	            return true;
+    	        }
 	        }
 	    }
 	    return false;
