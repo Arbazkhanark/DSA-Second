@@ -47,11 +47,15 @@ class Solution {
         
 
         int maxDiff = 0;
+        int high=0;
         int start = 0, end = 0;
         while (start < n && end < n) {
             if (left[start] <= right[end]) {
-                
-                maxDiff = Math.max(maxDiff, end - start);
+                high=end-start;
+                if(high>maxDiff){
+                    maxDiff=high;
+                }
+                // maxDiff = Math.max(maxDiff, end - start);
                 end++;
             } else {
                 start++;
