@@ -34,30 +34,28 @@ class GFG {
 class Solve{
     
     long maxArea(int arr[], int len){
-        int height=0;
-        int distance=0;
-        int area=0;
-        int max=0;
-        int start=0;
-        int end=arr.length-1;
+        int left=0;
+        int right=len-1;
+        long maxArea=-1;
+        
         for(int i=0;i<arr.length;i++){
-            if(arr[start]<=arr[end]){
-                height=arr[start];
-                distance=end-start;
-                area=height*distance;
-                start++;
+            long height=0;
+            long area=-1;
+            if(arr[left]<arr[right]){
+                height=(long)arr[left];
+                left++;
             }else{
-                height=arr[end];
-                distance=end-start;
-                area=height*distance;
-                end--;
+                height=(long)arr[right];
+                right--;
             }
             
-            if(max<area){
-                max=area;
+            area=height*(right-left+1);
+            
+            if(maxArea<area){
+                maxArea=area;
             }
         }
-        return max;
+        return maxArea;
         
     }
     
