@@ -30,7 +30,7 @@ class Solution{
             return n;
         }
         
-        return n%10+sumOfDigits(n/10);
+        return sumOfDigits(n/10)+n%10;
         
     }
 }
