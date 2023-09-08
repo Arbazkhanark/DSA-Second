@@ -36,19 +36,14 @@ class Sorting
 // } Driver Code Ends
 
 
-class Solution
-{
-  static void insert(int arr[],int i)
-  {
-       // Your code here
-  }
+class Solution{
   //Function to sort the array using insertion sort algorithm.
   public void insertionSort(int arr[], int n){
       
-      for(int i=1;i<arr.length;i++){
+      for(int i=1;i<arr.length;i++){  //Unsorted Array
           int j=i-1;
-          int temp=arr[i];
-          for(;j>=0;j--){
+          int temp=arr[i];  //1 3 9 7
+          for(;j>=0;j--){           // Sorted Array   1 3 4 7 9
               if(temp<arr[j]){
                   arr[j+1]=arr[j];
               }else{
