@@ -40,17 +40,14 @@ class Solution{
   //Function to sort the array using insertion sort algorithm.
   public void insertionSort(int arr[], int n){
       
-      for(int i=1;i<arr.length;i++){  //Unsorted Array
+      for(int i=1;i<arr.length;i++){  // i Maintain UnSorted Array
           int j=i-1;
-          int temp=arr[i];  //1 3 9 7
-          for(;j>=0;j--){           // Sorted Array   1 3 4 7 9
-              if(temp<arr[j]){
-                  arr[j+1]=arr[j];
-              }else{
-                  break;
-              }
+          int temp=arr[i];            // Hold the current value to swap if condition match
+          while(j>=0 && temp<arr[j]){   // j Maintain Sorted Array
+              arr[j+1]=arr[j];
+              j--;
           }
-          arr[j+1]=temp;
+          arr[j+1]=temp;      // place the current value
       }
   }
 }
