@@ -60,17 +60,15 @@ class Solution {
             map.put(a[i],i);
         }
         
-        HashSet<Integer> set=new HashSet<>();
         
         int count=0;
         for(int i=0;i<b.length;i++){
             if(map.containsKey(b[i])){
                 count++;
                 map.remove(b[i]);
-                // set.add(b[i]);
             }
         }
-        // return set.size();
+        
         return count;
     }
 };
