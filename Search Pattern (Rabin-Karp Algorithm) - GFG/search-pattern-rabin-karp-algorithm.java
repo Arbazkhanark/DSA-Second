@@ -52,9 +52,7 @@ class Solution {
 
             if (pSum == sSum) {
                 for (int j=0;j<n2;j++){
-                    if (pat.charAt(j) != str.charAt(i-n2+1+j)) {
-                        break;
-                    } else {
+                    if (pat.charAt(j) == str.charAt(i-n2+1+j)) {
                         count++;
                     }
                 }
@@ -64,7 +62,8 @@ class Solution {
             }
 
             if(i<n1-1){
-                sSum =sSum-str.charAt(i-n2+1)+str.charAt(i+1);
+                sSum-=str.charAt(i-n2+1);
+                sSum+=str.charAt(i+1);
             }
         }
         
