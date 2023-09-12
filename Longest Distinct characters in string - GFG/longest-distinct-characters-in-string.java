@@ -39,9 +39,9 @@ class Solution{
                 left++;
             }else{
                 set.add(str.charAt(right));
-                // if(max<set.size()) max=set.size();
-                max = Math.max(max,right-left+1);
-                 right++;
+                if(max<set.size()) max=set.size();
+                // max = Math.max(max,right-left+1);
+                right++;
             }
            
         }
