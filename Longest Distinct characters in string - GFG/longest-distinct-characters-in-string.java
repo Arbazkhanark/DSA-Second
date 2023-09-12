@@ -25,43 +25,26 @@ class GFG
 
 //User function Template for Java
 
-// class Solution{
-//     static int longestSubstrDistinctChars(String str){
-        
-//         HashSet<Character> set=new HashSet<>();
-//         int min=0;
-//         for(int i=0;i<str.length();i++){
-//           if(set.contains(str.charAt(i))){
-//             set.clear();
-//           }else{
-//             set.add(str.charAt(i));
-//             if(min<set.size()){
-//               min=set.size();
-//             }
-//           }
-//         }
-//         return min;
-//     }
-// }
-
-
 class Solution{
     static int longestSubstrDistinctChars(String str){
         HashSet<Character> set=new HashSet<>();
+        int left=0;
         int max=0;
-        int j = 0;
-        for(int i=0;i<str.length();i++){
-          if(!set.contains(str.charAt(i))){
-            set.add(str.charAt(i));
-            max = Math.max(max, set.size());
-          } else {
-            while(j < i && str.charAt(j) != str.charAt(i)){
-              set.remove(str.charAt(j));
-              j++;
+        
+        for(int right=0;right<str.length();right++){
+            
+            while(set.contains(str.charAt(right))){
+                set.remove(str.charAt(left));
+                left++;
             }
-            j++;
-          }
+            
+            set.add(str.charAt(right));
+            if(max<set.size()){
+                max=set.size();
+            }
+            
         }
+        
         return max;
     }
 }
