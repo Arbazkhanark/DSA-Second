@@ -31,39 +31,35 @@ class Sorting
 // } Driver Code Ends
 
 
-
-
 class Solution
 {
     //Function to sort an array using quick sort algorithm.
     static void quickSort(int arr[], int low, int high){
         if(low<high){
-            int pIndex=partition(arr,low,high);
+            int pivot_Index=partition(arr,low,high);
             
-            quickSort(arr,low,pIndex-1);   //Left
-            quickSort(arr,pIndex+1,high);  //Right
-            
+            quickSort(arr,low,pivot_Index-1); //Left Array
+            quickSort(arr,pivot_Index+1,high); //Right Array 
         }
     }
     static int partition(int arr[], int low, int high){
         int pivot=arr[high];
-        
         int i=low-1;
         for(int j=low;j<high;j++){
             if(arr[j]<pivot){
                 i++;
-                //SWAP
-                int temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
+                
+                int temp=arr[j];
+                arr[j]=arr[i];
+                arr[i]=temp;
             }
         }
         
         i++;
-        //SWAP
-        int temp1=arr[i];
-        arr[i]=pivot;
-        arr[high]=temp1;
+        int temp=arr[i];
+        arr[i]=arr[high];
+        arr[high]=temp;
+        
         return i;
     } 
 }
