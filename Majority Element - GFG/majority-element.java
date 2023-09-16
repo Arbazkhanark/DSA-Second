@@ -31,32 +31,34 @@ class Geeks
 
 class Solution
 {
-    static int majorityElement(int arr[], int size){
-        int majority=arr[0];
+    static int majorityElement(int arr[], int n){
+        int maj=arr[0];
         int count=0;
-        
         for(int i=0;i<arr.length;i++){
-            if(majority==arr[i]){
+            if(maj==arr[i]){
                 count++;
             }else{
                 count--;
                 if(count==0){
-                    majority=arr[i];
-                    count=1;
+                    maj=arr[i];
+                    count++;
                 }
             }
         }
         
-        
-        // This is for last majority to check if it has greater count than:-- n/2 
         count=0;
-        for(int arrs:arr){
-            if(majority==arrs){
+        for(int i=0;i<arr.length;i++){
+            if(maj==arr[i]){
                 count++;
             }
         }
         
+        if(count>n/2){
+            return maj;
+        }else{
+            return -1;
+        }
         
-        return (count>size/2)?majority:-1;
+        
     }
 }
