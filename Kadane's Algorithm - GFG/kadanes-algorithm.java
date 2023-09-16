@@ -40,11 +40,9 @@ class Solution{
         
         long sum=0;
         long max=Long.MIN_VALUE;
-        
-        for(int i=0;i<arr.length;i++){
+        for(int i=0;i<n;i++){
             sum+=arr[i];
-            
-            if(sum>max){
+            if(max<sum){
                 max=sum;
             }
             
@@ -52,8 +50,6 @@ class Solution{
                 sum=0;
             }
         }
-        
-        // return max >0 ? (long)max :-1;
         return max;
     }
     
