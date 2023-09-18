@@ -33,20 +33,6 @@ class Main
 class Solution{
         
     static int search(int arr[], int N, int X){
-        // int start=0;
-        // int end=N-1;
-        // while(start<=end){
-        //     int mid=start+end/2;
-        //     if(arr[mid]==X){
-        //         return mid;
-        //     }else
-        //     if(arr[mid]<X){
-        //         start=mid;
-        //     }else{
-        //         end=mid;
-        //     }
-        // }
-        // return -1;
         
         for(int i=0;i<N;i++){
             if(arr[i]==X){
