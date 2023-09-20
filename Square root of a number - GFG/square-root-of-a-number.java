@@ -32,17 +32,20 @@ class Solution
          }
 		long start=1;
 		long end=x;
+		long ans=1;
 		long key=(long)Math.sqrt(x);
 		while(start<=end){
 		    long mid=(start+end)/2;
-		    if(mid==key){
+		    if(mid*mid==x){
+		      //  ans=mid;
 		        return mid;
-		    }else if(mid<=key){
+		    }else if(mid*mid<=x){
+		        ans=mid;
 		        start=mid+1;
 		    }else{
 		        end=mid-1;
 		    }
 		}
-		return 0;
+		return ans;
 	 }
 }
