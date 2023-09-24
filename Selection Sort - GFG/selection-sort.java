@@ -39,7 +39,7 @@ class Solution
 	   
 	    for(int i=0;i<arr.length;i++){
 	        int smallest = i;
-	        for(int j=i;j<arr.length;j++){
+	        for(int j=i+1;j<arr.length;j++){
 	            if(arr[smallest]>arr[j]){
 	                smallest=j;
 	            }
