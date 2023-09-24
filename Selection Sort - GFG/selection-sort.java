@@ -31,21 +31,22 @@ class GFG
 // } Driver Code Ends
 
 
-class Solution{
-    
+class Solution
+{
+	
 	void selectionSort(int arr[], int n){
 	    
+	   
 	    for(int i=0;i<arr.length;i++){
-	        int min=arr[i];
+	        int smallest = i;
 	        for(int j=i;j<arr.length;j++){
-	            if(min>arr[j]){
-	                min=arr[j];
-	                int temp=arr[i];
-	                arr[i]=arr[j];
-	                arr[j]=temp;
+	            if(arr[smallest]>arr[j]){
+	                smallest=j;
 	            }
 	        }
+	                int temp=arr[smallest];
+	                arr[smallest]=arr[i];
+	                arr[i]=temp;
 	    }
-	    
 	}
 }
