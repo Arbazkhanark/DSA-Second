@@ -45,7 +45,7 @@ class Solution
                 sumPage+=arr[i];
             }else{
                 student++;
-                if(student>totalStudents || arr[i]>mid){ ///// imp line
+                if(student>totalStudents || arr[i]>mid){
                     return false;
                 }
                 sumPage=arr[i];
@@ -71,7 +71,7 @@ class Solution
         }
         
     //////   Finding start (Minimum value of Pages (Minimum value of element from array)) eg. {10,20,30,40}=10pages is minimum of all 4 books
-        int start=end;
+        int start=0;
         for(int i=0;i<arr.length;i++){
             if(start>=arr[i]){
                 start=arr[i];
