@@ -64,36 +64,27 @@ class Solution
             return -1;
         }
         
-    //////  Finding end (Sum of all the Pages (add arrays each elements)) eg.{10,20,30,40}=100Pages==end
         int end=0;
         for(int i=0;i<arr.length;i++){
             end+=arr[i];
         }
-        
-    //////   Finding start (Minimum value of Pages (Minimum value of element from array)) eg. {10,20,30,40}=10pages is minimum of all 4 books
+
         int start=0;
-        for(int i=0;i<arr.length;i++){
-            if(start>=arr[i]){
-                start=arr[i];
-            }
-        }
         
         
         int res=-1;
         while(start<=end){
-            // Find mid
+
             int mid=(start+end)/2;
             
             //// Checking if allocations are possible.
             if( isPossible( arr, totalStudents, mid )){
-                //If possible than Again check if allocations are possible.
                 res=mid;
                 end=mid-1;
             }else{
                 start=mid+1;
             }
-            // res=mid;
         }
-        return res;   // Mid value
+        return res;   
     }
 }
