@@ -21,23 +21,18 @@ class Solution{
     
   
     int Countpair(int arr[], int n, int sum){
+        HashMap<Integer,Integer> map=new HashMap<>();
         
         int count=0;
-        int left=0;
-        int right=arr.length-1;
-
-        while(left<right){
-            int tempSum=arr[left]+arr[right];
-            if(sum==tempSum){
-                count++;left++;right--;
-            }else if(tempSum>sum){
-                right--;
-            }else if(tempSum<sum){
-                left++;
+        for(int i=0;i<arr.length;i++){
+            int possible=sum-arr[i];
+            if(map.containsKey(possible)){
+                count++;
+            }else{
+                map.put(arr[i],i);
             }
         }
-        
-        return count<1 ? -1:count;
+        return (count==0) ? -1: count;
     }
   
     
