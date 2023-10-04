@@ -58,54 +58,40 @@ class Driverclass
 
 //User function Template for Java
 
-// class Solution
-// {   
-// 	static int findLongestConseqSubseq(int arr[], int N){
-// 	   Arrays.sort(arr);
-// 	   int count=1;
-// 	   int ans=1;
-// 	   for(int i=0;i<arr.length-1;i++){
-// 	       if(arr[i]==arr[i+1]){
-// 	           count+=1;
-// 	       }else
-// 	       if(arr[i+1]==arr[i]+1){
-// 	           count++;
-// 	       }else{
-// 	           if(count>ans){
-// 	               ans=count;
-// 	           }
-// 	           count=1;
-// 	       }
-	   //}
-// 	   return ans;
-// 	}
-// }
-
-
-
 class Solution
 {   
     static int findLongestConseqSubseq(int arr[], int N){
-        Arrays.sort(arr);
-        int count = 1;
-        int ans = 1;
-
-        for(int i=0; i<N-1; i++) {
-            if (arr[i]!=arr[i+1]) {
-                if (arr[i+1]==arr[i]+1) {
-                    count++;
-                }else{
-                    if(count>ans){
-                        ans=count;
-                    }
-                    count=1;
-                }
+        HashMap<Integer,Boolean> map=new HashMap<>();
+        
+        for(int i :arr){
+            map.put(i,true);
+        }
+        
+        for(int i=0;i<N;i++){
+            int curr=arr[i]-1;
+            if(map.containsKey(curr)){
+                map.put(arr[i],false);
             }
         }
-
+        
+        int count=1;
+        int ans=1;
+        for(int i : arr){
+            if(map.get(i)==true){
+                while(map.containsKey(i+count)){
+                    count++;
+                }
+                
+                if(count>ans){
+                    ans=count;
+                }
+                count=1;
+            }
+        }
         if(count>ans){
             ans=count;
         }
+        
         return ans;
     }
 }
