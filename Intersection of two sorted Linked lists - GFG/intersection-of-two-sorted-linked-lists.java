@@ -84,18 +84,19 @@ class Sol
    public static Node findIntersection(Node head1, Node head2){
        Node curr1=head1;
        Node curr2=head2;
+       
        Node ans=null;
-       Node tail=null;
+       Node tail=ans;
         while(curr1!=null && curr2!=null){
             if(curr1.data==curr2.data){
                 Node temp=new Node(curr1.data);
                 if(ans==null){
                     ans=temp;
-                    tail=temp;
                 }else{
                     tail.next=temp;
-                    tail=tail.next;
+                    // tail=tail.next;
                 }
+                tail=temp;
                 curr1 = curr1.next;
                 curr2 = curr2.next;
             }else if(curr1.data<curr2.data){
