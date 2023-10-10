@@ -82,21 +82,21 @@ class Solution {
     public static Node reverse(Node node, int k) {
         Node curr = node;
         Node prev = null;
-        Node next = null;
+        Node temp = null;
         int count = 0;
 
         // Reverse first k nodes
         while (count < k && curr != null) {
-            next = curr.next;
+            temp = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = next;
+            curr = temp;
             count++;
         }
 
         // Recursively call for the rest of the list and link it to the reversed part
-        if (next != null) {
-            node.next = reverse(next, k);
+        if (curr != null) {
+            node.next = reverse(temp, k);
         }
 
         // 'prev' is now the new head of this section
