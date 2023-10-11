@@ -78,65 +78,30 @@ class Node
 
 */
 
-class Solution {
-    public static Node reverse(Node node, int k) {
-        Node curr = node;
-        Node prev = null;
-        Node temp = null;
-        int count = 0;
-
-        // Reverse first k nodes
-        while (count < k && curr != null) {
-            temp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = temp;
-            count++;
+class Solution
+{
+    public static Node reverse(Node node, int k){
+        Node curr=node;
+        Node newHead=null;
+        Node prevFirst=null;
+        while(curr!=null){
+            Node prev=null;int count=;Node first=curr;
+            while(curr!=null && count==k){
+                Node temp=curr.next;
+                curr.next=prev;
+                prev=curr;
+                curr=temp;
+                count++;
+            }
+            
+            if(newHead==null){
+                newHead=prev;
+            }else{
+                prevFirst.next=prev;
+            }
+            prevFirst=first;
         }
-
-        // Recursively call for the rest of the list and link it to the reversed part
-        if (curr != null) {
-            node.next = reverse(temp, k);
-        }
-
-        // 'prev' is now the new head of this section
-        return prev;
+        return newHead;
     }
 }
-
-
-// class Solution {
-//     public static Node reverse(Node node, int k) {
-//         Node curr = node;
-//         Node prevTail = null;
-//         Node newHead = null;
-
-//         while (curr != null) {
-//             Node prev = null;
-//             Node tail = curr;
-
-//             int count = 0;
-//             while (curr != null && count < k) {
-//                 Node next = curr.next;
-//                 curr.next = prev;
-//                 prev = curr;
-//                 curr = next;
-//                 count++;
-//             }
-
-//             if (newHead == null) {
-//                 newHead = prev;
-//             }
-
-//             if (prevTail != null) {
-//                 prevTail.next = prev;
-//             }
-
-//             prevTail = tail;
-//         }
-
-//         return newHead;
-//     }
-// }
-
 
