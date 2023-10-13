@@ -101,17 +101,16 @@ class Solution
 {
     //Function to check whether the list is palindrome.
     boolean isPalindrome(Node head) {
-        Node curr2=head;
+        
+        Node curr=head;
         
         Node fast=head;
         Node slow=head;
-        while(fast!=null && fast.next!=null){
+        while(fast!=null && fast.next!=null ){
             slow=slow.next;
             fast=fast.next.next;
         }
         
-        
-        //Reverse Slow
         Node prev=null;
         while(slow!=null){
             Node temp=slow.next;
@@ -120,14 +119,14 @@ class Solution
             slow=temp;
         }
         
-        
-        while(prev!=null && curr2!=null){
-            if(prev.data!=curr2.data){
+        while(curr!=null && prev!=null){
+            if(curr.data!=prev.data){
                 return false;
             }
+            curr=curr.next;
             prev=prev.next;
-            curr2=curr2.next;
         }
+        
         return true;
     }    
 }
