@@ -60,8 +60,8 @@ class MyStack
 	
 	//Function to push an integer into the stack.
     void push(int a){
-        // top++;
-	    arr[++top]=a;
+        top++;
+	    arr[top]=a;
 	} 
 	
     //Function to remove an item from top of the stack.
