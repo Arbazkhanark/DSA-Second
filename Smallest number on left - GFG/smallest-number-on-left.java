@@ -31,61 +31,26 @@ class GFG{
 
 
 //User function Template for Java
-// class Solution{
-//     static List<Integer> leftSmaller(int n, int arr[]){
-//         Stack<Integer> stack=new Stack<>();
-//         ArrayList<Integer> list=new ArrayList<>();
-        
-        
-//         for(int i=0;i<arr.length;i++){
-//             // int prev=arr[i];
-//             int curr=arr[i];
-//             if(stack.isEmpty()){
-//                 stack.push(curr);
-//                 list.add(-1);
-//             }else{
-//                 int top=stack.peek();
-//                 if(curr>top){
-//                     stack.push(curr);
-//                     list.add(top);
-//                 }else if(curr<top){
-//                     while(!stack.isEmpty() && curr<stack.peek()){
-//                         stack.pop();
-//                     }
-                    
-//                     if(stack.isEmpty()){
-//                         stack.push(curr);
-//                         list.add(-1);
-//                     }else{
-//                         list.add(stack.peek());
-//                     }
-//                 }else if(curr==top){
-//                     list.add(-1);
-//                 }
-//             }
-//         }
-        
-//         return list;
-//     }
-// }
-
-
 
 class Solution{
     static List<Integer> leftSmaller(int n, int a[])
     {
-       ArrayList <Integer> l = new ArrayList <>();
-       l.add(-1);
-       for(int i=1;i<n;i++){
-           int min=-1;
-           for(int j=0;j<i;j++){
-            if(a[j]<a[i]){
-                min=a[j];
-            } 
-           }
-           l.add(min);
-       }
-       return l;
+        //code here
+        Stack<Integer>stack=new Stack<>();
+        ArrayList<Integer>list=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            while(!stack.isEmpty()&&stack.peek()>=a[i]){
+                stack.pop();
+            }
+            if(stack.isEmpty()){
+                list.add(-1);
+            }
+            else{
+                list.add(stack.peek());
+            }
+            stack.push(a[i]);
+        }
+        return list;
     }
 }
 
