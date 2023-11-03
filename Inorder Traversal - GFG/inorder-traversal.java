@@ -121,11 +121,11 @@ class Solution {
     public void traversal(Node root,ArrayList<Integer> list){
         if(root==null){
             return;
-        }else{
-            traversal(root.left,list);
-            list.add(root.data);
-            traversal(root.right,list);
         }
+        
+        traversal(root.left,list);
+        list.add(root.data);
+        traversal(root.right,list);
         
         
     }
